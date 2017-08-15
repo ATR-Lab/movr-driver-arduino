@@ -30,22 +30,10 @@
  * msg        = message
  * cmd        = command
  * cb         = callback
- * *****************************************
- * 
- * *****************************************
- * PLANNING
- * *****************************************
- * 
- * http://wiki.ros.org/teb_local_planner/Tutorials/Planning%20for%20car-like%20robots
- * http://wiki.ros.org/teb_local_planner/Tutorials/Planning%20for%20car-like%20robots#Command_interfaces
- * 
- * https://answers.ros.org/question/260935/twist-message-working-ackermann-type-conversion/
  */
 
 /* *****************************************
  * ROBOT Drive Motor Definitions
- * 
- * http://henrysbench.capnfatz.com/henrys-bench/arduino-voltage-measurements/arduino-pcf8591-digital-to-analog-tutorial/
  * *****************************************/
 #include "Wire.h"
 #define PCF8591 (0x90 >> 1)
@@ -76,13 +64,6 @@ int volatile out = 120;
  * 
  * encLAngle = Pulse Count * (360/2400)
  * encLAngle = Pulse Count * (3/20)
- * 
- * https://www.youtube.com/watch?v=qsdiIZncgqo
- * https://www.youtube.com/watch?v=0QLZCfqUeg4
- * http://ttuadvancedrobotics.wikidot.com/odometry#toc9
- * https://toriilab.blogspot.com/2016/09/a-rotary-encoder-is-used-to-measure.html
- * http://correll.cs.colorado.edu/?p=1869
- * http://planning.cs.uiuc.edu/node658.html
  * *****************************************/
 #define WHEEL_L_DIAMETER      8.50        // The diameter of the left rear wheel    8.5 mm
 #define WHEEL_R_DIAMETER      8.50        // The diameter of the right rear wheel   8.5 mm
@@ -156,8 +137,6 @@ std_msgs::String steerAngleMsg;    // Steering odometry message
  * ROS movr command subscriber - callback function
  * Receives AckermannDrive message
  * Then updates PID "motor1Setpoint"
- * 
- * http://docs.ros.org/api/ackermann_msgs/html/msg/AckermannDrive.html
  */
 void movrCmdCb(const movr_steering::AckermannDrive& steerCmd) {
   // SET Angula
