@@ -12,25 +12,30 @@ The sketch also creates a ROS publisher to publish odometry data generated from 
 - [References](#references)
 
 ## Dependencies
-**rosserial_arduino**   
-Arduino [ROS](http://wiki.ros.org/rosserial_arduino) extensions to run rosserial_clients.      
-
-**ackermann_msgs**   
-ROS [messages](http://wiki.ros.org/ackermann_msgs) for vehicles using [ackermann steering](https://en.wikipedia.org/wiki/Ackermann_steering_geometry).    
- 
-**PID Library**   
-An easy to use Arduino PID [library](http://playground.arduino.cc/Code/PIDLibrary).  
+- **rosserial_arduino**   
+  - Arduino [ROS extensions](http://wiki.ros.org/rosserial_arduino) to run rosserial_clients.      
+- **ackermann_msgs**   
+  - [ROS messages](http://wiki.ros.org/ackermann_msgs) for vehicles using [ackermann steering](https://en.wikipedia.org/wiki/Ackermann_steering_geometry).    
+- **PID Library**   
+  - An easy to use Arduino [PID library](http://playground.arduino.cc/Code/PIDLibrary).  
 
 ## How to use 
-1) Run roscore
 ``` 
+# STEP 1: Run roscore
 $ roscore
 ```
-2) Run rosserial node
+
 ```
+# STEP 2: Run rosserial node
 $ rosrun rosserial_python serial_node.py /dev/ttyACM1
 ```
-3) Run the node that will publish the drive commands
+
+```
+# STEP 3: Run the node that will publish the drive commands
+# For example the movr_teleop hello_movr.py
+# Note that you must 'source' the movr_ws for the movr_teleop package to be visible
+$ rosrun movr_teleop hello_mvr.py
+```
 
 ## Development
 
