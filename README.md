@@ -19,6 +19,23 @@ The sketch also creates a ROS publisher to publish odometry data generated from 
 - **PID Library**   
   - An easy to use Arduino [PID library](http://playground.arduino.cc/Code/PIDLibrary).  
 
+## Installation
+
+```
+# If the ROS 'ackermann_msgs/AckermannDrive' has not been installed
+$ sudo apt install ros-kinetic-ackermann-msgs
+```
+
+```
+# Install ROS rosserial, rosserial-arduino, rosserial-python
+$sudo apt install ros-kinetic-rosserial ros-kinetic-rosserial-arduino ros-kinetic-rosserial-python
+```
+
+```
+# Generate Arduino ros_lib
+http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup
+```
+
 ## How to use 
 ``` 
 # STEP 1: Run roscore
