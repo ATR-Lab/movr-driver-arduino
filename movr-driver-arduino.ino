@@ -124,7 +124,7 @@ PID myPID(&motor1Input, &motor1Output, &motor1Setpoint, motor1Kp, motor1Ki, moto
 #include <ros.h>
 #include <std_msgs/String.h>
 #include <std_msgs/UInt16.h>
-#include <movr_steering/AckermannDrive.h>
+#include <ackermann_msgs/AckermannDrive.h>
 
 /********************************************
  * ROS Node(s) Definitions
@@ -138,7 +138,7 @@ std_msgs::String steerAngleMsg;    // Steering odometry message
  * Receives AckermannDrive message
  * Then updates PID "motor1Setpoint"
  */
-void movrCmdCb(const movr_steering::AckermannDrive& steerCmd) {
+void movrCmdCb(const ackermann_msgs::AckermannDrive& steerCmd) {
   // SET Angula
   motor1Setpoint = transformSteerAngleToPotmtr(steerCmd.steering_angle);
 
@@ -146,7 +146,7 @@ void movrCmdCb(const movr_steering::AckermannDrive& steerCmd) {
   out = steerCmd.speed;
 }
 
-ros::Subscriber<movr_steering::AckermannDrive> movrCmdSub("movr_cmd", &movrCmdCb);  // Subscriber receives AckermannDrive messages
+ros::Subscriber<ackermann_msgs::AckermannDrive> movrCmdSub("movr_cmd", &movrCmdCb);  // Subscriber receives AckermannDrive messages
 ros::Publisher steerAnglePub("steer_angle_pub", &steerAngleMsg);                    // 
 
 void setup() {
@@ -292,4 +292,3 @@ double distanceTraveled(int nClicks) {
 double totalDistanceTraveled(double leftWheelDistance, double rightWheelDistance) {
   return (leftWheelDistance + rightWheelDistance) / 2;
 }
-
